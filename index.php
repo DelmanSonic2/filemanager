@@ -30,15 +30,30 @@
             <form action="" class=add_file_form>
                 <label for="input_template">Путь</label>
                 <input id=input_template class="input_template" name=input_template type="text">
-                <button type="submit"  value="Добавить файл" name=submit>Добавить файл</button>
+                <button type="submit" value="Добавить файл" name=submit>Добавить файл</button>
+            </form>
+            <form action="" class=rename_file_form>
+                <label for="rename_template">Название</label>
+                <input type="text" class=rename_template_null name="rename_template_null" style="display:none;">
+                <input id=rename_template class="rename_template" name=rename_template type="text">
+                <button type="submit" value="Добавить файл" name=submit>Переименовать</button>
+            </form>
+            <form action="" class=add_folder_form>
+                <label for="input_templat_foldere">Путь</label>
+                <input id=input_template_folder class="input_template_folder" name=input_template_folder type="text">
+                <button type="submit" value="Добавить файл" name=submit>Добавить папку</button>
             </form>
         </div>
     </div>
 </body>
-
 </html>
 <?php
 if (isset($_REQUEST['submit'])) {
-    add_file($_REQUEST['input_template']);
+    if (isset($_REQUEST['input_template']))
+        add_file($_REQUEST['input_template']);
+        if (isset($_REQUEST['input_template_folder']))
+        add_folder($_REQUEST['input_template_folder']);
+    if (isset($_REQUEST['rename_template_null']) && isset($_REQUEST['rename_template']))
+        rename_file($_REQUEST['rename_template_null'], $_REQUEST['rename_template']);
 }
 ?>
