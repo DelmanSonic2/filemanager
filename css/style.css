@@ -1,0 +1,56 @@
+img{
+width: 25px;
+height: 25px;
+margin-right: 10px;
+}
+li>a,li>div{
+    line-height: 30px;
+    vertical-align:middle;
+    height: 30px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+}
+li{
+    display: flex;
+    flex-direction: column;
+}
+body{
+    height: 98vh;
+}
+textarea{
+    width: 100%;
+    height: 100%;
+    resize: vertical;
+}
+.main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.main aside{
+    width: 400px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.main .editor{
+    width: calc(100% - 400px);
+    height: 100%;
+}
+.main .editor iframe{
+    width: 100%;
+    height: 100%;
+}
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    cursor: pointer;
+}
+
+.panel {
+
+    display: none;
+}
