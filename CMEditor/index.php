@@ -70,7 +70,7 @@ function loadfile($filepath)
           print "Файл: $file : тип: " . filetype($dir . $file) . "\n";
         }
         closedir($dh);
-      }/**/
+      }
     }
   }
 }
@@ -91,9 +91,11 @@ function backup($type,$filename)
       if(strpos($filename,'../') !==false){
         $filename = str_replace('../','',$filename);
       }
+      
       $fn = date("ymdhms").$filename;
+      $fn = str_replace("/","_",$fn);
       $file = fopen(ROOT."/backup/".$fn,'w');
-      fputs($file,file_get_contents($filename));
+      fputs($file,file_get_contents($fnn));
       fclose($file);
       DB::query("INSERT INTO `backups`( `date`, `time`, `filename`, `filename_backup`) VALUES ('".date('Y-m-d')."','".date('h-m-s')."','".$fnn."','".$fn."')");
       break;
